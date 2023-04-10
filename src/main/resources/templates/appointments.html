@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Programari</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/thymeleaf-extras-springsecurity/3.0.4.RELEASE/thymeleaf-extras-springsecurity.min.js"
+            integrity="sha512-KwZprxLjSK66fih1yyz51/mgQyX9cOZFn//60KdpgxtZLGmQx8h5hx5o5ymcC5y5MvXhWwb1nKlm6p/d+p6Sg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+<h1>Programari</h1>
+
+<div class="table-container">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Pacient</th>
+            <th scope="col">Doctor</th>
+            <th scope="col">Data</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="appointment : ${appointments}">
+            <th th:text="${appointment.getId()}" scope="row"></th>
+            <td th:text="${appointment.getPatient().getLastName() + ' ' + appointment.getPatient().getFirstName()}"></td>
+            <td th:text="${appointment.getDoctor().getLastName() + ' ' + appointment.getDoctor().getFirstName()}"></td>
+            <td th:text="${#temporals.format(appointment.getDate(), 'dd-MM-yyyy')}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<br>
+<a href="http://localhost:8092/" class="btn btn-info" role="button">Pagina principala</a>
+</body>
+</html>

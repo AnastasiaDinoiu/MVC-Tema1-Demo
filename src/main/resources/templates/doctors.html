@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Doctori</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<h1>Doctori</h1>
+
+<div class="table-container">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nume</th>
+            <th scope="col">Prenume</th>
+            <th scope="col">Domeniu</th>
+            <th scope="col">Telefon</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="doctor : ${doctors}">
+            <th th:text="${doctor.getId()}" scope="row"></th>
+            <td th:text="${doctor.getFirstName()}"></td>
+            <td th:text="${doctor.getLastName()}"></td>
+            <td th:text="${doctor.getField()}"></td>
+            <td th:text="${doctor.getPhone()}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<br>
+<a href="http://localhost:8092/" class="btn btn-info" role="button">Pagina Principala</a>
+</body>
+</html>
